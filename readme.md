@@ -1,8 +1,6 @@
 # Simple graphQl api using Apollo and Firebase
 
- [Live playground](https://us-central1-graphql-api-3d27c.cloudfunctions.net/products/graphql)
-
-Make sure the playground url matches the browser url.
+Make sure the endpoint value matches the browser url when first launching the playground
 
 Sample query 
 
@@ -20,12 +18,9 @@ Sample mutation
 
 ```
 mutation {
-  addProduct(name: "Purple car park") {
+  addProduct(name: "Purple car park", isFull: false) {
     name,
-    pricePerDay
-    isFull,
-    location
-    meetAndGreet
+    isFull
   }
 }
 ```
