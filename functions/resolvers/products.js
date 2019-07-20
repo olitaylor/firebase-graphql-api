@@ -8,8 +8,8 @@ module.exports = {
     /** 
      * Get all products from firebase db
      */
-    products: async () => 
-      await admin
+    products: () => 
+      admin
         .database()
         .ref('products')
         .once('value')
@@ -19,8 +19,8 @@ module.exports = {
     /**
     * Get product by name from firebase db
     */
-    product: async (root, args, context) => 
-      await admin
+    product: (root, args, context) => 
+      admin
         .database()
         .ref('products')
         .orderByChild('name')
