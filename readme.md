@@ -15,3 +15,17 @@ product(name: "Green car park") {
   name
 }
 ```
+
+Sample mutation 
+
+```
+mutation {
+  addProduct(name: "Purple car park") {
+    name,
+    pricePerDay
+    isFull,
+    location
+    meetAndGreet
+  }
+}
+```

@@ -19,7 +19,7 @@ module.exports = {
     /**
     * Get product by name from firebase db
     */
-    product: (root, args, context) => 
+    product: (_, args, context) => 
       admin
         .database()
         .ref('products')
@@ -31,5 +31,17 @@ module.exports = {
           return val.val() ? val.val()[key] : null
         })
         .then(val => val || new ValidationError('Product not found')),
-  }
+
+  },
+  Mutation: {
+    /** 
+    * Push new product to the firebase db, validation is performed on the typeDef
+    */
+    addProduct: (_, args) => {
+      admin
+        .database()
+        .ref('products')
+        .push(args);
+    },
+  },
 };
