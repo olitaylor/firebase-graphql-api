@@ -7,7 +7,7 @@ const resolvers = require('./resolvers/products');
 
 const app = express();
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, uploads: false });
 
 server.applyMiddleware({ app, path: "/", cors: true });
 exports.graphql = functions.https.onRequest(app);
