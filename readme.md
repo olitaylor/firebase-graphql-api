@@ -11,4 +11,7 @@ products {
   name
   location
 }
+product(name: "Green car park") {
+  name
+}
 ```
