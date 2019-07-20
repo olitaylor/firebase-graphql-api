@@ -9,6 +9,7 @@ module.exports =  gql`
     pricePerDay: Float
   }
   type Query {
-    products: [Product]
+    products: [Product],
+    product(name: String!): Product
   }
 `;
