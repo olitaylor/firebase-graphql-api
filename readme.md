@@ -1,4 +1,4 @@
-# Simple graphQl api using Apollo and Firebase
+# Simple graphQL api using Apollo and Firebase
 
 Make sure the endpoint value matches the browser url when first launching the playground
 
