@@ -2,6 +2,7 @@ const { gql } = require("apollo-server-express");
 
 module.exports =  gql`
   type Product {
+    id: String
     isFull: Boolean
     location: String
     name: String
@@ -14,14 +15,14 @@ module.exports =  gql`
   }
 
   type Mutation {
-      # A mutation to add a new product to the list of products
-      addProduct(
-        name: String!
-        isFull: Boolean!
-        location: String!
-        name: String!
-        meetAndGreet: Boolean!
-        pricePerDay: Float!
-      ): Product
+    # A mutation to add a new product to the list of products
+    addProduct(
+      name: String!
+      isFull: Boolean!
+      location: String!
+      name: String!
+      meetAndGreet: Boolean!
+      pricePerDay: Float!
+    ): Product
   }
 `;

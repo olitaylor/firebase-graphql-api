@@ -18,3 +18,4 @@ const server = new ApolloServer({
 server.applyMiddleware({ app, path: "/", cors: true });
 
 exports.products = functions.https.onRequest(app);
+exports.addProduct = functions.https.onCreate(app);

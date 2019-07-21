@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const { ApolloError, ValidationError } = require('apollo-server');
+const { ValidationError } = require('apollo-server');
 
 admin.initializeApp();
 
@@ -14,7 +14,11 @@ module.exports = {
         .ref('products')
         .once('value')
         .then(snap => snap.val())
-        .then(val => Object.keys(val).map(key => val[key])  || new ValidationError('No products found')),
+        .then(val => {
+          return Object.keys(val).map((key, index) => { 
+            return { id: Object.keys(val)[index], ...val[key] }  || new ValidationError('No products found')
+          })
+        }),
 
     /**
     * Get product by name from firebase db
@@ -28,7 +32,7 @@ module.exports = {
         .once('value')
         .then(val => {
           let key = val.val() ? Object.keys(val.val())[0] : null
-          return val.val() ? val.val()[key] : null
+          return val.val() ? { id: key, ...val.val()[key] } : null
         })
         .then(val => val || new ValidationError('Product not found')),
 
