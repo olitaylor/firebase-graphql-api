@@ -1,6 +1,7 @@
 const { gql } = require("apollo-server-express");
 
 module.exports =  gql`
+
   type Product {
     id: String
     isFull: Boolean
@@ -9,6 +10,7 @@ module.exports =  gql`
     meetAndGreet: Boolean
     pricePerDay: Float
   }
+
   type Query {
     products: [Product],
     product(name: String!): Product
@@ -25,4 +27,5 @@ module.exports =  gql`
       pricePerDay: Float!
     ): Product
   }
+
 `;
